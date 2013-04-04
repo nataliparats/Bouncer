@@ -1,0 +1,49 @@
+=====================  Compile  =====================
+
+To compile, Run the script: "./build.sh" or use the command "make".
+
+=======================  Run  =======================
+
+To run, the application, Run the script bouncer.sh using the syntax:
+
+"./bouncer.sh <listen_ip <listen_port <server_ip <server_port"
+
+*server_ip: Should be the IP address (name are not supported) of the server where the traffic will be forward by the bouncer.
+	    It should respect the format of an IPv4 address (ex: 192.168.0.1)
+*server_port:Should be the port of the server where the traffic will be forward by the bouncer.
+	    It should respect the format of port number [1..65535]
+*listen_ip: The "Fake IP" of the bouncer. The bouncer will only take of traffic send to this IP and drop other traffic.
+	    It should respect the format of an IPv4 address (ex: 192.168.0.1), name are not supported
+*listen_port: The listen port of the bouncer.  For TCP, The bouncer will only take of traffic send to this port and drop other traffic.
+	    For ICMP traffic this port will be ignored.
+	    It should respect the format of port number [1..65535]
+
+====================== IP addressing issues ========
+
+In order to be able to reach the "Fake IP" of the bouncer, you need to add some static route.
+
+
+===================== libraries ====================
+
+* Standard librairies
+stdio.h
+stdlib.h
+string.h
+errno.h
+ctype.h
+
+* PCAP lib
+pcap.h
+
+* Standard networking lib
+sys/socket.h
+netinet/in.h
+arpa/inet.h
+
+* Packets header lib
+net/if.h
+netinet/if_ether.h
+netinet/ip.h
+netinet/ip_icmp.h
+netinet/tcp.h
+
